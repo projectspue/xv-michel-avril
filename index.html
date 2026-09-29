@@ -88,7 +88,7 @@ section{padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
 /* ══════ HERO ══════ */
 .hero{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(175deg,#fce4ec 0%,var(--bg) 35%,var(--cream) 65%,var(--sec) 100%);padding:3rem 1.5rem;position:relative}
 .hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 80%,rgba(216,92,136,.06) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(212,167,106,.06) 0%,transparent 50%);pointer-events:none}
-.hero-frame{position:relative;padding:3rem 2.5rem;border:1px solid rgba(216,92,136,.2);border-radius:30px;max-width:600px;background:rgba(255,255,255,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); margin-top: 50px;}
+.hero-frame{position:relative;padding:3rem 2.5rem;border:1px solid rgba(216,92,136,.2);border-radius:30px;max-width:620px;background:rgba(255,255,255,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); margin-top: 50px;}
 .hero-frame::before{content:'❀';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 16px;color:var(--gold);font-size:1.4rem}
 
 .hero-photo-top {
@@ -116,7 +116,51 @@ section{padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
 
 .hero-surname{font-size:clamp(.78rem,2vw,.9rem);letter-spacing:.3em;text-transform:uppercase;color:var(--pri-dark);font-weight:500;margin-bottom:1.5rem;opacity:.8}
 .hero-date-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pri),var(--pri-dark));color:var(--white);padding:.55rem 1.8rem;border-radius:50px;font-size:.85rem;font-weight:600;letter-spacing:.12em;margin-bottom:1.8rem;box-shadow:0 4px 20px rgba(216,92,136,.3)}
-.hero-msg{max-width:480px;font-size:clamp(.88rem,2.5vw,1.02rem);font-weight:400;color:#7a5a66;line-height:1.85;font-style:italic;margin:0 auto 2rem}
+
+/* TARJETAS DE PADRES Y PADRINOS */
+.family-box {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.1rem 1.4rem;
+  border-radius: 18px;
+  border: 1px solid rgba(212, 167, 106, 0.35);
+  box-shadow: 0 4px 18px rgba(216, 92, 136, 0.1);
+  margin-bottom: 1rem;
+}
+.family-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #b8436b;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.names-parents {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ff2a75;
+  text-shadow: 0 2px 10px rgba(255, 42, 117, 0.25);
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+.names-godparents {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #c47d15;
+  text-shadow: 0 2px 10px rgba(212, 167, 106, 0.35);
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+}
+.invite-phrase {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4a3640;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
 .scroll-hint{animation:bounce 2.5s ease-in-out infinite;margin-top:1rem;display:inline-block}
 .scroll-hint svg{width:28px;height:28px;stroke:var(--pri);stroke-width:2;fill:none;opacity:.6}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
@@ -231,7 +275,7 @@ footer p{letter-spacing:.08em}
 
 /* ══════ RESPONSIVE ══════ */
 @media(max-width:600px){
-  .hero-frame{padding:3rem 1.5rem 2rem;margin:50px .5rem 0;border-radius:22px}
+  .hero-frame{padding:3rem 1.2rem 2rem;margin:50px .5rem 0;border-radius:22px}
   .hero-corner{width:40px;height:40px}
   .iti-card{padding:2rem 1.4rem}
   section{padding:4rem 1.2rem}
@@ -239,6 +283,7 @@ footer p{letter-spacing:.08em}
   .welcome-title { font-size: 2.8rem; }
   .welcome-photo { width: 180px; height: 240px; }
   .hero-photo-top { width: 130px; height: 130px; margin-top: -90px; }
+  .names-parents, .names-godparents { font-size: 1.02rem; }
 }
 </style>
 </head>
@@ -298,7 +343,36 @@ footer p{letter-spacing:.08em}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
       7 de noviembre de 2026
     </span>
-    <p class="hero-msg">&ldquo;Hay momentos en la vida que son inolvidables, pero compartirlos con las personas que más quieres los hace mágicos. ¡Acompáñame a celebrar mis XV Años!&rdquo;</p>
+
+    <!-- NOMBRES DE PADRES Y PADRINOS -->
+    <div style="margin: 1.8rem auto 1.2rem; max-width: 520px;">
+      
+      <!-- Bloque Padres -->
+      <div class="family-box">
+        <p class="family-label">Con la bendición de mis Padres</p>
+        <p class="names-parents">
+          EDILBERTO CERVANTES<br>
+          <span style="font-size: 0.95rem; color: #d4a76a; font-weight: 400;">&amp;</span><br>
+          DOMI MARTÍNEZ
+        </p>
+      </div>
+
+      <!-- Bloque Padrinos -->
+      <div class="family-box">
+        <p class="family-label">Mis Padrinos</p>
+        <p class="names-godparents">
+          YOLANDA SAAVEDRA DURÁN<br>
+          <span style="font-size: 0.95rem; color: #d85c88; font-weight: 400;">&amp;</span><br>
+          JUAN GUTIÉRREZ MÉNDEZ
+        </p>
+      </div>
+
+      <!-- Frase de invitación -->
+      <p class="invite-phrase">
+        Tenemos el honor de invitarte a mi celebración
+      </p>
+    </div>
+
   </div>
 
   <a href="#cuenta" class="scroll-hint reveal" aria-label="Desplazar">
@@ -427,16 +501,16 @@ footer p{letter-spacing:.08em}
 
 /* LISTA DE FOTOS DE LA GALERÍA */
 var fotosGaleria = [
-  "IMAGEN (1).jpeg",
-  "IMAGEN (2).jpg",
-  "IMAGEN (3).jpg",
-  "IMAGEN (4).jpg",
-  "IMAGEN (5).jpg",
-  "IMAGEN (6).jpg",
-  "IMAGEN (7).jpg",
-  "IMAGEN (8).jpg",
-  "IMAGEN (9).jpg",
-  "IMAGEN (10).jpg"
+  "IMAGEN (1).jpeg",  /* Recuerdo 1 */
+  "IMAGEN (2).jpg",   /* Recuerdo 2 */
+  "IMAGEN (3).jpg",   /* Recuerdo 3 */
+  "IMAGEN (4).jpg",   /* Recuerdo 4 */
+  "IMAGEN (5).jpg",   /* Recuerdo 5 */
+  "IMAGEN (6).jpg",   /* Recuerdo 6 */
+  "IMAGEN (11).jpg",   /* Recuerdo 7 *///////
+  "IMAGEN (8).jpg",   /* Recuerdo 8 */
+  "IMAGEN (11).jpg",    /* Recuerdo 9 */
+  "IMAGEN (10).jpg"   /* Recuerdo 10 */
 ];
 
 !function(){
@@ -449,11 +523,28 @@ var fotosGaleria = [
     var d = document.createElement("div");
     d.className = "gallery-item";
     d.title = "Haz clic para ampliar la foto";
-    d.innerHTML = '<img src="' + encodeURI(src) + '" alt="Recuerdo ' + (index + 1) + '" loading="lazy">';
     
+    // Si tu archivo del recuerdo 9 se llama con paréntesis o sin paréntesis, este detector lo carga sin errores:
+    var imgTag = document.createElement("img");
+    imgTag.src = encodeURI(src);
+    imgTag.alt = "Recuerdo " + (index + 1);
+    imgTag.loading = "lazy";
+    imgTag.onerror = function() {
+      if (!this.dataset.tried) {
+        this.dataset.tried = "1";
+        if (src.indexOf("IMAGEN 11") !== -1) {
+          this.src = encodeURI("IMAGEN (11).jpg");
+        } else if (src.indexOf("IMAGEN (11)") !== -1) {
+          this.src = encodeURI("IMAGEN 11.jpg");
+        }
+      }
+    };
+    
+    d.appendChild(imgTag);
+
     d.addEventListener("click", function() {
       if (lb && lbImg) {
-        lbImg.src = encodeURI(src);
+        lbImg.src = imgTag.src;
         lb.classList.add("active");
       }
     });
